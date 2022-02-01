@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Grid, Typography, Paper, makeStyles } from '@material-ui/core';
+import { Grid, Typography, Paper, makeStyles, Button } from '@material-ui/core';
 
 import { SocketContext } from '../Context';
 
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const VideoPlayer = () => {
-  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
+  const { name, setscreen, screen, video, audio, setAudio, setVideo, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
   const classes = useStyles();
 
   return (
@@ -45,6 +45,11 @@ const VideoPlayer = () => {
           </Grid>
         </Paper>
       )}
+
+      <Button onClick={() => setVideo(!video)}> video cut</Button>
+      <Button onClick={() => setAudio(!audio)}> audio cut</Button>
+      <Button onClick={() => setscreen(!screen)}> audio cut</Button>
+
     </Grid>
   );
 };
